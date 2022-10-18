@@ -1,0 +1,9 @@
+PUT http://localhost:3000/predio
+Content-Type: application/json
+
+{
+ "_id": "630d5f58b8a291c9d9b650eb",
+ "nome": "teste 2",
+ "sigla": "TES",
+ "andares": 1
+}

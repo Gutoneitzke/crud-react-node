@@ -1,0 +1,10 @@
+POST http://localhost:3000/sala
+Content-Type: application/json
+
+{
+ "descricao": "teste",
+ "capacidade": 40,
+ "andar": 1,
+ "localizacao": "B4",
+ "predio": "630d6276b8a291c9d9b650ee"
+}

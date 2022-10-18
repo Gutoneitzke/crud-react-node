@@ -1,0 +1,4 @@
+GET http://localhost:3000/predio
+Content-Type: application/json
+
+

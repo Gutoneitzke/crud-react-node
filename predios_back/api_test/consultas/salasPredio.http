@@ -1,0 +1,3 @@
+GET http://localhost:3000/sala/predio/630d6276b8a291c9d9b650ee
+Content-Type: application/json
+###

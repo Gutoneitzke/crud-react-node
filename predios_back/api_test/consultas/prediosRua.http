@@ -1,0 +1,3 @@
+GET http://localhost:3000/predio/rua/630d5aa11de04051c955fafa
+Content-Type: application/json
+###

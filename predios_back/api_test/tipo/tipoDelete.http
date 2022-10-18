@@ -1,0 +1,2 @@
+DELETE http://localhost:3000/tipo/630d6150b8a291c9d9b650ed
+Content-Type: application/json

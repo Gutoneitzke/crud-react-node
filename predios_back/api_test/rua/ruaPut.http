@@ -1,0 +1,7 @@
+PUT http://localhost:3000/rua
+Content-Type: application/json
+
+{
+ "_id": "630d5a5e1de04051c955faf9",
+ "descricao": "Rua 2"
+}

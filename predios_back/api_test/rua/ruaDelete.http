@@ -1,0 +1,2 @@
+DELETE http://localhost:3000/rua/630d5a5e1de04051c955faf9
+Content-Type: application/json
