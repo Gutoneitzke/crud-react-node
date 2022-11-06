@@ -1,5 +1,5 @@
 # Atualizar usuário
-PUT http://localhost:3000/Usuario
+PUT http://localhost:3000/usuario
 Content-Type: application/json
 
 {

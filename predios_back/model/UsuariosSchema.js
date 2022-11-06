@@ -6,4 +6,4 @@ const Usuario = new mongoose.Schema({
     senha: String,
     dataHoraCad: { type: Date, default: Date.now },
 });
-module.exports = mongoose.model("Usuario", Usuario);
+module.exports = mongoose.model("usuario", Usuario);
