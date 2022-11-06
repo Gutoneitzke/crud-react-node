@@ -1,4 +1,4 @@
-const Usuario = require('../model/UsuariosSchema');
+const Usuario = require('../model/UsuarioSchema');
 
 module.exports = (app) => {
     app.get('/usuario', (req, res) => {
