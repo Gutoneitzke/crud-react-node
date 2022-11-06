@@ -17,4 +17,4 @@ const Predio = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("Predio", Predio);
+module.exports = mongoose.model("predio", Predio);

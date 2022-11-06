@@ -1,5 +1,5 @@
 # Inserir  usuário
-POST http://localhost:3000/usuario
+POST http://localhost:3000/usuario-srv
 Content-Type: application/json
  
 {

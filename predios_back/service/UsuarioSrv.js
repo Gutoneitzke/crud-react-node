@@ -1,7 +1,7 @@
 const Usuario = require('../model/UsuarioSchema');
 
 module.exports = (app) => {
-    app.get('/usuario', (req, res) => {
+    app.get('/usuario-srv', (req, res) => {
         Usuario.find((err, objetos) => {
             if (err) {
                 res.status(400).send(err.message);
@@ -10,7 +10,7 @@ module.exports = (app) => {
         }).sort({ nome: 1 }); // -1 decrescente  1 crescente
     });
 
-    app.post('/usuario', (req, res, next) => {
+    app.post('/usuario-srv', (req, res, next) => {
         let obj = new Usuario(req.body);
         obj.save((err, obj) => {
             if (err) res.status(400).send(err.message);
@@ -18,7 +18,7 @@ module.exports = (app) => {
         });
     });
 
-    app.put('/usuario', (req, res) => {
+    app.put('/usuario-srv', (req, res) => {
         let obj = new Usuario(req.body);
         const error = obj.validateSync();
         if (error) {
@@ -33,7 +33,7 @@ module.exports = (app) => {
         });
     });
 
-    app.delete('/usuario/:id', (req, res) => {
+    app.delete('/usuario-srv/:id', (req, res) => {
         Usuario.deleteOne({ _id: req.params.id }, function (err) {
             if (err) {
                 res.status(400).send(err.message);
@@ -43,7 +43,7 @@ module.exports = (app) => {
 
     });
 
-    app.get('/usuario/:id', (req, res) => {
+    app.get('/usuario-srv/:id', (req, res) => {
         Usuario.findOne({ _id: req.params.id }, function (err, obj) {
             if (err) {
                 res.status(400).send(err.message);
@@ -52,7 +52,7 @@ module.exports = (app) => {
         });
     });
 
-    app.get('/usuario/filtro/:filtro', (req, res) => {
+    app.get('/usuario-srv/filtro/:filtro', (req, res) => {
         Usuario.find({
             $or: [
                 { nome: { $regex: req.params.filtro, $options: "i" } },

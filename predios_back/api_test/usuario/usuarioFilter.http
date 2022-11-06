@@ -1,9 +1,9 @@
 # Obter pelo id de usuário
-GET http://localhost:3000/usuario/63604521c2b547e5455f0f74
+GET http://localhost:3000/usuario-srv/63604521c2b547e5455f0f74
 Content-Type: application/json
 ###
 
 # Obter usuários filtrando
-GET http://localhost:3000/usuario/filtro/gustavo
+GET http://localhost:3000/usuario-srv/filtro/gustavo
 Content-Type: application/json
 ###
