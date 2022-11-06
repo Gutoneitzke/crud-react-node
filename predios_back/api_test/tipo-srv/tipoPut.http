@@ -2,6 +2,6 @@ PUT http://localhost:3000/tipo-srv
 Content-Type: application/json
 
 {
- "_id": "630d6150b8a291c9d9b650ed",
+ "_id": "63683140af777367adcfc9e3",
  "descricao": "teste 2"
 }
