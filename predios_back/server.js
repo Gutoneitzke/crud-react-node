@@ -29,5 +29,17 @@ MongoClient.connect(uri, (err, client) => {
     });
 });
 
-const endpoints = require('./endpoints');
-endpoints(app);
+const predio = require('./service/predio');
+predio(app);
+
+const rua = require('./service/rua');
+rua(app);
+
+const sala = require('./service/sala');
+sala(app);
+
+const tipo = require('./service/tipo');
+tipo(app);
+
+const UsuarioSrv = require('./service/UsuarioSrv');
+UsuarioSrv(app);
