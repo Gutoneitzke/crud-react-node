@@ -1,0 +1,7 @@
+PUT http://localhost:3000/tipo-srv
+Content-Type: application/json
+
+{
+ "_id": "630d6150b8a291c9d9b650ed",
+ "descricao": "teste 2"
+}

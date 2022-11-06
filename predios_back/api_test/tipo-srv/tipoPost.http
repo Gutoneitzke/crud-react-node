@@ -1,0 +1,6 @@
+POST http://localhost:3000/tipo-srv
+Content-Type: application/json
+
+{
+ "descricao": "teste tipo"
+}

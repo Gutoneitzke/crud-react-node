@@ -1,0 +1,4 @@
+GET http://localhost:3000/sala-srv
+Content-Type: application/json
+
+
