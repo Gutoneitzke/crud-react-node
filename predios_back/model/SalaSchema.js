@@ -1,9 +1,18 @@
 const mongoose = require("mongoose");
 const Sala = new mongoose.Schema({
-    nome: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    celular: String,
-    senha: String,
-    dataHoraCad: { type: Date, default: Date.now },
+    descricao: { type: String, required: true},
+    capacidade: { type: Number, required: true },
+    andar: {
+        type: Number,
+        required: true,
+        min: [1, 'Mínimo um andar'],
+        max: 100
+    },
+    predio: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'predios', 
+        require: true,
+    },
+    localizacao: { type: String, required: true }
 });
 module.exports = mongoose.model("sala", Sala);

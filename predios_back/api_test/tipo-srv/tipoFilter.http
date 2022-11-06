@@ -4,6 +4,6 @@ Content-Type: application/json
 ###
 
 # Obter usuários filtrando
-GET http://localhost:3000/tipo-srv/filtro/teste 2
+GET http://localhost:3000/tipo-srv/filtro/teste tipo
 Content-Type: application/json
 ###
