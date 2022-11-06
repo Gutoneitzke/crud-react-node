@@ -1,7 +1,7 @@
 const Predio = require('../model/PredioSchema');
 
 module.exports = (app) => {
-    app.get('/Predio', (req, res) => {
+    app.get('/predio', (req, res) => {
         Predio.find((err, objetos) => {
             if (err) {
                 res.status(400).send(err.message);
@@ -10,7 +10,7 @@ module.exports = (app) => {
         }).populate('rua').sort({ nome: 1 }); // -1 decrescente  1 crescente
     });
 
-    app.post('/Predio', (req, res, next) => {
+    app.post('/predio', (req, res, next) => {
         let obj = new Predio(req.body);
         obj.save((err, obj) => {
             if (err) res.status(400).send(err.message);
@@ -18,7 +18,7 @@ module.exports = (app) => {
         });
     });
 
-    app.put('/Predio', (req, res) => {
+    app.put('/predio', (req, res) => {
         let obj = new Predio(req.body);
         const error = obj.validateSync();
         if (error) {
@@ -33,7 +33,7 @@ module.exports = (app) => {
         });
     });
 
-    app.delete('/Predio/:id', (req, res) => {
+    app.delete('/predio/:id', (req, res) => {
         Predio.deleteOne({ _id: req.params.id }, function (err) {
             if (err) {
                 res.status(400).send(err.message);
@@ -43,7 +43,7 @@ module.exports = (app) => {
 
     });
 
-    app.get('/Predio/:id', (req, res) => {
+    app.get('/predio/:id', (req, res) => {
         Predio.findOne({ _id: req.params.id }, function (err, obj) {
             if (err) {
                 res.status(400).send(err.message);
@@ -52,7 +52,7 @@ module.exports = (app) => {
         }).populate('rua');
     });
 
-    app.get('/Predio/filtro/:filtro', (req, res) => {
+    app.get('/predio/filtro/:filtro', (req, res) => {
         Predio.find({
             $or: [
                 { nome: { $regex: req.params.filtro, $options: "i" } },

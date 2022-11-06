@@ -1,7 +1,7 @@
 const Rua = require('../model/RuaSchema');
 
 module.exports = (app) => {
-    app.get('/Rua', (req, res) => {
+    app.get('/rua', (req, res) => {
         Rua.find((err, objetos) => {
             if (err) {
                 res.status(400).send(err.message);
@@ -10,7 +10,7 @@ module.exports = (app) => {
         }).sort({ descricao: 1 }); // -1 decrescente  1 crescente
     });
 
-    app.post('/Rua', (req, res, next) => {
+    app.post('/rua', (req, res, next) => {
         let obj = new Rua(req.body);
         obj.save((err, obj) => {
             if (err) res.status(400).send(err.message);
@@ -18,7 +18,7 @@ module.exports = (app) => {
         });
     });
 
-    app.put('/Rua', (req, res) => {
+    app.put('/rua', (req, res) => {
         let obj = new Rua(req.body);
         const error = obj.validateSync();
         if (error) {
@@ -33,7 +33,7 @@ module.exports = (app) => {
         });
     });
 
-    app.delete('/Rua/:id', (req, res) => {
+    app.delete('/rua/:id', (req, res) => {
         Rua.deleteOne({ _id: req.params.id }, function (err) {
             if (err) {
                 res.status(400).send(err.message);
@@ -43,7 +43,7 @@ module.exports = (app) => {
 
     });
 
-    app.get('/Rua/:id', (req, res) => {
+    app.get('/rua/:id', (req, res) => {
         Rua.findOne({ _id: req.params.id }, function (err, obj) {
             if (err) {
                 res.status(400).send(err.message);
@@ -52,7 +52,7 @@ module.exports = (app) => {
         });
     });
 
-    app.get('/Rua/filtro/:filtro', (req, res) => {
+    app.get('/rua/filtro/:filtro', (req, res) => {
         Rua.find({
             $or: [
                 { descricao: { $regex: req.params.filtro, $options: "i" } },
