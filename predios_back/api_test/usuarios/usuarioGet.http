@@ -1,0 +1,3 @@
+# Obter a lista de usuarios
+GET http://localhost:3000/Usuario
+Content-Type: application/json

@@ -1,0 +1,10 @@
+# Atualizar usuário
+PUT http://localhost:3000/Usuario
+Content-Type: application/json
+
+{
+ "_id": "6360457fc424ba5ac80bd871",
+     "nome": "Jaqson", "email": "jaqson2@upf.br",
+    "celular": "99999-9999", "senha": "123", 
+    "dataHoraCad": "2021-01-25T17:32:25.000Z"
+}

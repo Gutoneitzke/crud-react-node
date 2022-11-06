@@ -1,0 +1,9 @@
+# Inserir  usuário
+POST http://localhost:3000/Usuario
+Content-Type: application/json
+ 
+{
+    "nome": "Teste 2", "email": "jaqson@upf.br",
+    "celular": "99999-9999", "senha": "123", 
+    "dataHoraCad": "2021-01-25T17:32:25.000Z"
+}
