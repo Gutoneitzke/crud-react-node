@@ -16,18 +16,16 @@ app.get('/', (req, res) => {
     res.send('Atendida a requisição GET!!');
 });
 
-// conexão com mongoBD
-const MongoClient = require('mongodb').MongoClient;
-const uri = process.env.URI;
-MongoClient.connect(uri, (err, client) => {
-    if (err)
-        return console.log(err);
-    db = client.db(process.env.BASE_NAME);
-    app.listen(process.env.PORT, function () {
-        console.log('API rodando na porta -> '+process.env.PORT);
-        console.log('Testar por http://localhost:'+process.env.PORT);
-    });
+const port = process.env.PORT || 3000;
+
+app.listen(port, function () {
+    console.log('API rodando na porta '+port);
+    console.log(`Testar por http://localhost:${port}`);
 });
+
+// conexão com mongoBD
+require('./mongo');
+const { default: mongoose } = require("mongoose");
 
 const predio = require('./service/predio');
 predio(app);

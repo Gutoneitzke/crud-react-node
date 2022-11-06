@@ -1,5 +1,5 @@
 # Obter pelo id de usuário
-GET http://localhost:3000/usuario-srv/63604521c2b547e5455f0f74
+GET http://localhost:3000/usuario-srv/63682751a9b613a8ac1253f7
 Content-Type: application/json
 ###
 
