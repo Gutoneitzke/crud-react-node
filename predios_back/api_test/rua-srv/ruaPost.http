@@ -2,5 +2,5 @@ POST http://localhost:3000/rua-srv
 Content-Type: application/json
 
 {
- "descricao": "testess"
+ "descricao": "Rua Z"
 }

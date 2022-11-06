@@ -53,7 +53,7 @@ module.exports = (app) => {
     });
 
     app.get('/rua-srv/filtro/:filtro', (req, res) => {
-        Predio.find({
+        Rua.find({
             $or: [
                 { descricao: { $regex: req.params.filtro, $options: "i" } },
             ],

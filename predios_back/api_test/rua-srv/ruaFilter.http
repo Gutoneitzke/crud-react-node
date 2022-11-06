@@ -1,0 +1,9 @@
+# Obter pelo id de usuário
+GET http://localhost:3000/rua-srv/6368303f28eb4c5516642499
+Content-Type: application/json
+###
+
+# Obter usuários filtrando
+GET http://localhost:3000/rua-srv/filtro/Rua Z
+Content-Type: application/json
+###

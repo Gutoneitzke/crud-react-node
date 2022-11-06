@@ -1,0 +1,9 @@
+# Obter pelo id de usuário
+GET http://localhost:3000/sala-srv/63682ab56eba3cb9a1174ec7
+Content-Type: application/json
+###
+
+# Obter usuários filtrando
+GET http://localhost:3000/sala-srv/filtro/188765@upf.br
+Content-Type: application/json
+###
