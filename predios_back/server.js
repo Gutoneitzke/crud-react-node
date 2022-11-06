@@ -30,14 +30,26 @@ const { default: mongoose } = require("mongoose");
 const predio = require('./service/predio');
 predio(app);
 
+const PredioSrv = require('./service/PredioSrv');
+PredioSrv(app);
+
 const rua = require('./service/rua');
 rua(app);
+
+const RuaSrv = require('./service/RuaSrv');
+RuaSrv(app);
 
 const sala = require('./service/sala');
 sala(app);
 
+const SalaSrv = require('./service/SalaSrv');
+SalaSrv(app);
+
 const tipo = require('./service/tipo');
 tipo(app);
+
+const TipoSrv = require('./service/TipoSrv');
+TipoSrv(app);
 
 const UsuarioSrv = require('./service/UsuarioSrv');
 UsuarioSrv(app);
