@@ -11,7 +11,7 @@ const Predio = new mongoose.Schema({
     },
     rua: { 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'ruas', 
+        ref: 'rua', 
         require: true,
     }
 

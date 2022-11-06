@@ -1,2 +1,2 @@
-DELETE http://localhost:3000/predio-srv/630d5f58b8a291c9d9b650eb
+DELETE http://localhost:3000/predio-srv/63683343f71acb8170c52d08
 Content-Type: application/json

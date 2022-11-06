@@ -2,8 +2,8 @@ POST http://localhost:3000/predio-srv
 Content-Type: application/json
 
 {
- "nome": "teste",
- "sigla": "TES",
+ "nome": "B5",
+ "sigla": "b5",
  "andares": 1,
- "rua": "630d5aa11de04051c955fafa"
+ "rua": "6368301928eb4c5516642491"
 }

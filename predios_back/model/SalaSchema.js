@@ -10,7 +10,7 @@ const Sala = new mongoose.Schema({
     },
     predio: { 
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'predios', 
+        ref: 'predio', 
         require: true,
     },
     localizacao: { type: String, required: true }
