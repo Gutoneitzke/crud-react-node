@@ -18,9 +18,9 @@ export default function Predios(){
 
     function refreshData(){
         axios
-            .get('/predio')
+            .get('/predio-srv')
             .then((response) => {
-                setPredios(response.data);
+                setPredios(response.data)
                 setSpinner(false);
             });
     }
@@ -30,7 +30,7 @@ export default function Predios(){
         setNome(data.nome);
         setSigla(data.sigla);
         setAndares(data.andares);
-        setRua(data.rua);
+        setRua(!data.rua ? '' : data.rua._id);
         setId(data._id);
     }
 
@@ -46,7 +46,7 @@ export default function Predios(){
         };
 
         axios
-            .post('/predio',data)
+            .post('/predio-srv',data)
             .then((response) => {
                 setSpinner(false);
                 setTemplate(1);
@@ -66,7 +66,7 @@ export default function Predios(){
         };
 
         axios
-            .put('/predio?_id='+id,data)
+            .put('/predio-srv?_id='+id,data)
             .then((response) => {
                 setSpinner(false);
                 setTemplate(1);
@@ -79,7 +79,7 @@ export default function Predios(){
         {
             setSpinner(true);
             
-            axios.delete('/predio/'+data)
+            axios.delete('/predio-srv/'+data)
                 .then((response) => {
                     setSpinner(false);
                     setTemplate(1);
@@ -88,19 +88,28 @@ export default function Predios(){
         }
     }
 
+    function newRegister(){
+        setTemplate(2)
+        setNome('');
+        setSigla('');
+        setAndares('');
+        setRua('');
+        setId('');
+    }
+
     return (
-        <div class="project">
+        <div className="project">
             <h4>Listagem de prédios</h4>
             { showspinner ? (
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <div className="spinner-border" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             ) : (
             <div>
                 { template == 1 ? (
-                    <div class="text-center">
-                        <button class="btn btn-success mb-5" onClick={() => { setTemplate(2) }}>Novo</button>
-                        <table class="table">
+                    <div className="text-center">
+                        <button className="btn btn-success mb-5" onClick={() => { newRegister() }}>Novo</button>
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -118,10 +127,10 @@ export default function Predios(){
                                         <td>{u.nome}</td>
                                         <td>{u.sigla}</td>
                                         <td>{u.andares}</td>
-                                        <td>{u.rua}</td>
+                                        <td>{!u.rua ? '-' : u.rua['descricao']}</td>
                                         <td>
-                                            <button class="btn btn-primary" onClick={() => { showEditPage(u) }}>Editar</button>
-                                            <button class="btn btn-danger" onClick={() => { deleteData(u._id) }}>Deletar</button>
+                                            <button className="btn btn-primary" onClick={() => { showEditPage(u) }}>Editar</button>
+                                            <button className="btn btn-danger" onClick={() => { deleteData(u._id) }}>Deletar</button>
                                         </td>
                                     </tr>
                                 ))) : (
@@ -133,49 +142,49 @@ export default function Predios(){
                         </table>
                     </div>
                 ) : template == 2 ? (
-                    <div class="text-center">
-                        <button class="btn btn-primary mb-5" onClick={() => { setTemplate(1) }}>Voltar</button>
+                    <div className="text-center">
+                        <button className="btn btn-primary mb-5" onClick={() => { setTemplate(1) }}>Voltar</button>
                         <form onSubmit={(e) => { submit(e) }}>
-                            <div class="form-group text-left">
+                            <div className="form-group text-left">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
+                                <input type="text" className="form-control" id="nome" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="sigla">Sigla</label>
-                                <input type="text" class="form-control" id="sigla" placeholder="Sigla" value={sigla} onChange={(e) => setSigla(e.target.value)}/>
+                                <input type="text" className="form-control" id="sigla" placeholder="Sigla" value={sigla} onChange={(e) => setSigla(e.target.value)}/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="andares">Andares</label>
-                                <input type="number" class="form-control" id="andares" placeholder="Andares" value={andares} onChange={(e) => setAndares(e.target.value)}/>
+                                <input type="number" className="form-control" id="andares" placeholder="Andares" value={andares} onChange={(e) => setAndares(e.target.value)}/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="rua">Rua</label>
-                                <input type="text" class="form-control" id="rua" placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)}/>
+                                <input type="text" className="form-control" id="rua" placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)}/>
                             </div>
-                            <button type="submit" class="btn mt-3 btn-success">Enviar</button>
+                            <button type="submit" className="btn mt-3 btn-success">Enviar</button>
                         </form>
                     </div>
                 ) : (
-                    <div class="text-center">
-                        <button class="btn btn-primary mb-5" onClick={() => { setTemplate(1) }}>Voltar</button>
+                    <div className="text-center">
+                        <button className="btn btn-primary mb-5" onClick={() => { setTemplate(1) }}>Voltar</button>
                         <form onSubmit={(e) => { submitUpdate(e) }}>
-                            <div class="form-group text-left">
+                            <div className="form-group text-left">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
+                                <input type="text" className="form-control" id="nome" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="sigla">Sigla</label>
-                                <input type="text" class="form-control" id="sigla" placeholder="Sigla" value={sigla} onChange={(e) => setSigla(e.target.value)}/>
+                                <input type="text" className="form-control" id="sigla" placeholder="Sigla" value={sigla} onChange={(e) => setSigla(e.target.value)}/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="andares">Andares</label>
-                                <input type="number" class="form-control" id="andares" placeholder="Andares" value={andares} onChange={(e) => setAndares(e.target.value)}/>
+                                <input type="number" className="form-control" id="andares" placeholder="Andares" value={andares} onChange={(e) => setAndares(e.target.value)}/>
                             </div>
-                            <div class="form-group">
+                            <div className="form-group">
                                 <label for="rua">Rua</label>
-                                <input type="text" class="form-control" id="rua" placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)}/>
+                                <input type="text" className="form-control" id="rua" placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)}/>
                             </div>
-                            <button type="submit" class="btn mt-3 btn-success">Enviar</button>
+                            <button type="submit" className="btn mt-3 btn-success">Enviar</button>
                         </form>
                     </div>
                 )}
