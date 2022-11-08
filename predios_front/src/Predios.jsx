@@ -51,6 +51,12 @@ export default function Predios(){
                 setSpinner(false);
                 setTemplate(1);
                 refreshData();
+            })
+            .catch((error) => {
+                setSpinner(false);
+                setTemplate(1);
+                refreshData();
+                alert(error.response.data);
             });
     }
 
