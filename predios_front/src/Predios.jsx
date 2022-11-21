@@ -11,21 +11,26 @@ export default function Predios(){
     const [andares, setAndares] = useState('');
     const [rua, setRua] = useState('');
     const [id, setId] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(1);
+    const [totalItems, setTotalItems] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(5);
 
     React.useEffect(() => {
         refreshData()
         }, []);
 
-    function refreshData(){
+    const refreshData = () => {
         axios
             .get('/predio-srv')
             .then((response) => {
-                setPredios(response.data)
+                setPredios(response.data);
+                setPaginationLogic(response.data.length);
                 setSpinner(false);
             });
     }
 
-    function showEditPage(data){
+    const showEditPage = (data) => {
         setTemplate(3);
         setNome(data.nome);
         setSigla(data.sigla);
@@ -34,7 +39,7 @@ export default function Predios(){
         setId(data._id);
     }
 
-    function submit(event){
+    const submit = (event) => {
         event.preventDefault();
         setSpinner(true);
 
@@ -60,7 +65,7 @@ export default function Predios(){
             });
     }
 
-    function submitUpdate(event){
+    const submitUpdate = (event) => {
         event.preventDefault();
         setSpinner(true);
 
@@ -80,7 +85,7 @@ export default function Predios(){
             });
     }
 
-    function deleteData(data){
+    const deleteData = (data) => {
         if(confirm('Tem certeza que deseja deletar ?'))
         {
             setSpinner(true);
@@ -94,13 +99,48 @@ export default function Predios(){
         }
     }
 
-    function newRegister(){
+    const newRegister = () => {
         setTemplate(2)
         setNome('');
         setSigla('');
         setAndares('');
         setRua('');
         setId('');
+    }
+
+    const setPaginationLogic = (data) => {
+        setTotalItems(data);
+        setTotalPage(Math.ceil(data / itemsPerPage));
+    }
+
+    const makeNewCurrentPage = (data, operation) => {
+        let page = data;
+        if(operation == '+')
+        {
+            page++;
+            if(page > totalPage)
+            {
+                return;
+            }
+            else
+            {
+                data++;
+                setCurrentPage(data);
+            }
+        }
+        else if(operation == '-')
+        {
+            page--;
+            if(page == 0)
+            {
+                return;
+            }
+            else
+            {
+                data--;
+                setCurrentPage(data);
+            }
+        }
     }
 
     return (
@@ -146,6 +186,13 @@ export default function Predios(){
                                 )}
                             </tbody>
                         </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><button class="page-link" onClick={() => { makeNewCurrentPage(currentPage,'-') }}>&lt;</button></li>
+                                <li class="page-item"><button class="page-link">{currentPage}</button></li>
+                                <li class="page-item"><button class="page-link" onClick={() => { makeNewCurrentPage(currentPage,'+') }}>&gt;</button></li>
+                            </ul>
+                        </nav>
                     </div>
                 ) : template == 2 ? (
                     <div className="text-center">
