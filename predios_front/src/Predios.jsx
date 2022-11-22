@@ -53,15 +53,16 @@ export default function Predios(){
         axios
             .post('/predio-srv',data)
             .then((response) => {
-                setSpinner(false);
                 setTemplate(1);
                 refreshData();
             })
             .catch((error) => {
-                setSpinner(false);
                 setTemplate(1);
                 refreshData();
                 alert(error.response.data);
+            })
+            .finally((f) => {
+                setSpinner(false);
             });
     }
 
@@ -79,9 +80,11 @@ export default function Predios(){
         axios
             .put('/predio-srv?_id='+id,data)
             .then((response) => {
-                setSpinner(false);
                 setTemplate(1);
                 refreshData();
+            })
+            .finally((f) => {
+                setSpinner(false);
             });
     }
 
@@ -95,7 +98,11 @@ export default function Predios(){
                     setSpinner(false);
                     setTemplate(1);
                     refreshData();
+                })
+                .finally((f) => {
+                    setSpinner(false);
                 });
+                
         }
     }
 
@@ -111,6 +118,12 @@ export default function Predios(){
     const setPaginationLogic = (data) => {
         setTotalItems(data);
         setTotalPage(Math.ceil(data / itemsPerPage));
+        let newPredios = [];
+        for(let i = 0; i < predios.length; i++)
+        {
+            newPredios
+        }
+        console.log('setPaginationLogic',newPredios);
     }
 
     const makeNewCurrentPage = (data, operation) => {
