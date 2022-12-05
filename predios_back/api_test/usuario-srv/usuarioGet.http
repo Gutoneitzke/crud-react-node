@@ -1,3 +1,0 @@
-# Obter a lista de usuarios
-GET http://localhost:3000/usuario-srv
-Content-Type: application/json

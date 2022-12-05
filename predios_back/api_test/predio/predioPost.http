@@ -1,9 +1,0 @@
-POST http://localhost:3000/predio
-Content-Type: application/json
-
-{
- "nome": "teste",
- "sigla": "TES",
- "andares": 1,
- "rua": "630d5aa11de04051c955fafa"
-}

@@ -1,7 +1,0 @@
-PUT http://localhost:3000/rua-srv
-Content-Type: application/json
-
-{
- "_id": "63682f9a28eb4c551664248c",
- "descricao": "Rua Y"
-}

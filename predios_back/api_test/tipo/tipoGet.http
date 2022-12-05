@@ -1,4 +1,0 @@
-GET http://localhost:3000/tipo
-Content-Type: application/json
-
-

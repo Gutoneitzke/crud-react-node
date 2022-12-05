@@ -1,9 +1,0 @@
-POST http://localhost:3000/predio-srv
-Content-Type: application/json
-
-{
- "nome": "B5",
- "sigla": "b5",
- "andares": 1,
- "rua": "6368301928eb4c5516642491"
-}

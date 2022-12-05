@@ -1,6 +1,0 @@
-POST http://localhost:3000/tipo
-Content-Type: application/json
-
-{
- "descricao": "teste tipo"
-}
